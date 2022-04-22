@@ -53,7 +53,6 @@ void AutoTreeTest::chooseOption(int option)
 		autoTest();
 	}
 	break;
-
 	case 12:
 	{
 		fillFromFile();
@@ -117,7 +116,7 @@ void AutoTreeTest::autoTest()
 			break;
 		}
 	}
-	//this->testTree->clear();
+	this->testTree->clear();
 }
 
 void AutoTreeTest::find(size_t size)

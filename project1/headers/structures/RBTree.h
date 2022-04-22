@@ -69,12 +69,12 @@ namespace DataStructures
 		DataStructures::RBTNode<T>* getNode(RBTNode<T>* node, const T& element);
 		//calculate height of tree
 		int getDepth(RBTNode<T>* node);
+		//removes node
+		void removeNode(RBTNode<T>* node);
 		//balances the tree after remove
 		void deleteFixup(RBTNode<T>* node);
 		//balances the tree after add
 		void insertFixup(RBTNode<T>* node);
-		//clears RBTree
-		virtual void clear(RBTNode<T>* node);
 		//rotates the tree left
 		void rotateLeft(RBTNode<T>* node);
 		//rotates the tree right

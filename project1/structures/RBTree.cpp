@@ -21,10 +21,7 @@ DataStructures::RBTree<T>::~RBTree()
 {
 	clear();
 
-	if (root)
-		delete this->root;
-	if (nodeNull != nullptr)
-		delete this->nodeNull;
+	delete this->nodeNull;
 }
 
 template<typename T>
@@ -153,11 +150,21 @@ template<typename T>
 void DataStructures::RBTree<T>::remove(const T& element)
 {
 	RBTNode<T>* nodeToRemove = getNode(root, element);
+
+	if (nodeToRemove == nodeNull)
+		throw* this->out_of_bound;
+
+	removeNode(nodeToRemove);
+}
+
+template<typename T>
+void DataStructures::RBTree<T>::removeNode(RBTNode<T>* nodeToRemove)
+{
 	RBTNode<T>* y;
 	RBTNode<T>* z = nodeToRemove;
 
 	if (nodeToRemove == nodeNull)
-		throw* this->out_of_bound;
+		return;
 
 	if (nodeToRemove->leftChild == nodeNull || nodeToRemove->rightChild == nodeNull)
 		y = nodeToRemove;
@@ -272,33 +279,29 @@ void DataStructures::RBTree<T>::deleteFixup(RBTNode<T>* removedNode)
 template<typename T>
 void DataStructures::RBTree<T>::clear()
 {
-	clear(this->root);
+	if (this->root = nodeNull)
+		return;
 
-	// Initialize
-	this->nodeNull = new RBTNode<T>();
-	this->nodeNull->color = Color::BLACK;
-	this->nodeNull->parent = this->nodeNull;
-	this->nodeNull->leftChild = this->nodeNull;
-	this->nodeNull->rightChild = this->nodeNull;
+	while (root->leftChild != nodeNull && root->rightChild != nodeNull)
+	{
+		if (root->leftChild != nodeNull)
+			removeNode(root->leftChild);
+		if (root->rightChild != nodeNull)
+			removeNode(root->rightChild);
+	}
+
+	delete this->root;
+
+	if (!nodeNull) {
+		// Initialize nodeNull
+		this->nodeNull = new RBTNode<T>();
+		this->nodeNull->color = Color::BLACK;
+		this->nodeNull->parent = this->nodeNull;
+		this->nodeNull->leftChild = this->nodeNull;
+		this->nodeNull->rightChild = this->nodeNull;
+	}
 
 	this->root = nodeNull;
-}
-
-template<typename T>
-void DataStructures::RBTree<T>::clear(RBTNode<T>* node)
-{
-	if (node != nodeNull)
-	{
-		if (node)
-		{
-			clear(node->leftChild);
-			clear(node->rightChild);
-
-			//node->leftChild->parent = nodeNull;
-			//node->rightChild->parent = nodeNull;
-			delete node;
-		}
-	}
 }
 
 template<typename T>
@@ -315,6 +318,7 @@ void DataStructures::RBTree<T>::print(std::ostream& out)
 		{
 			nodes[i] = nullptr;
 		}
+		out << size << std::endl;
 
 		nodesToArray(nodes, root, 0);
 

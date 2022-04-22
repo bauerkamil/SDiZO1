@@ -17,13 +17,25 @@ T& DataStructures::List<T>::get(const size_t& index)
 	{
 		throw* this->invalid_index;
 	}
-	ListNode<T>* node = this->head;
-	for (size_t i = 0; i < index; i++)
-	{
-		ListNode<T>* next = node->nextNode;
-		node = next;
+	if (index <= size / 2) {
+		ListNode<T>* prevNode = this->head;
+		for (size_t i = 0; i < index; i++)
+		{
+			ListNode<T>* next = prevNode->nextNode;
+			prevNode = next;
+		}
+		return prevNode->value;
 	}
-	return node->value;
+	//else start from tail
+	else {
+		ListNode<T>* nextNode = this->tail;
+		for (size_t i = this->size - 1; i > index; i--)
+		{
+			ListNode<T>* next = nextNode->prevNode;
+			nextNode = next;
+		}
+		return nextNode->value;
+	}
 }
 
 template<typename T>
