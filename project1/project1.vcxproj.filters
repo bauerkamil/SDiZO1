@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\menu">
+      <UniqueIdentifier>{e3786a01-5e31-4c68-8507-e0c8a5c73b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\menu\autoTests">
+      <UniqueIdentifier>{09256af6-4ac6-45e4-b385-1be3e6ccc1b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dataStructures">
+      <UniqueIdentifier>{9377a1e5-3a9d-4b4c-9a39-66b9a486e0eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\general">
+      <UniqueIdentifier>{9cf217fe-6c6b-46b1-91de-4df0d09c2af5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dataStructures">
+      <UniqueIdentifier>{48a1b206-9aac-46d0-8e7c-d0520de3e18c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\menu">
+      <UniqueIdentifier>{8404ba19-c8df-4402-b6bd-335062615b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\general">
+      <UniqueIdentifier>{be39572c-d78c-4509-8d3e-aef40e86c480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\menu\autoTests">
+      <UniqueIdentifier>{2b8edff1-b0b7-4fa6-a7cc-541be3daada9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="project1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\ArrayTest.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="structures\Array.cpp">
+      <Filter>Source Files\dataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\autoTests\StructureInit.cpp">
+      <Filter>Source Files\general</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\autoTests\AutoArrTest.cpp">
+      <Filter>Source Files\menu\autoTests</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="other\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="structures\List.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\autoTests\AutoListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="structures\Heap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\HeapTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\autoTests\AutoHeapTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="structures\RBTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\TreeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\autoTests\AutoTreeTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu\ListTest1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\structures\Array.h">
+      <Filter>Header Files\dataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\ArrayTest.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\autoTests\StructureInit.h">
+      <Filter>Header Files\general</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\autoTests\AutoArrTest.h">
+      <Filter>Header Files\menu\autoTests</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\other\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\structures\List.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\autoTests\AutoListTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\structures\Heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\HeapTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\autoTests\AutoHeapTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\structures\RBTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\TreeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\autoTests\AutoTreeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\menu\ListTest1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
