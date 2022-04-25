@@ -23,6 +23,8 @@ namespace DataStructures
 		// returns obj at index
 		// throws invalid argument exception
 		virtual T& get(const size_t& index);
+		//seraches for element
+		virtual bool find(const T& element);
 		// checks if element exists in array
 		virtual size_t& getIndex(const T& element);
 		// adds element to end

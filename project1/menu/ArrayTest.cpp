@@ -168,7 +168,8 @@ void ArrayTest::add()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::addEnd()
@@ -176,7 +177,8 @@ void ArrayTest::addEnd()
 	int element = getElement();
 	this->testArray->add(element);
 
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::addFront()
@@ -184,7 +186,8 @@ void ArrayTest::addFront()
 	int element = getElement();
 	this->testArray->addFront(element);
 
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::remove()
@@ -199,7 +202,8 @@ void ArrayTest::remove()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::removeFront()
@@ -213,7 +217,8 @@ void ArrayTest::removeFront()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::removeEnd()
@@ -227,7 +232,8 @@ void ArrayTest::removeEnd()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testArray->print(std::cout);
 }
 
 void ArrayTest::getSize()

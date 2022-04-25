@@ -110,7 +110,8 @@ void TreeTest::add()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testTree->print(std::cout);
 }
 
 void TreeTest::remove()
@@ -125,7 +126,8 @@ void TreeTest::remove()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testTree->print(std::cout);
 }
 
 void TreeTest::print()

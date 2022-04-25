@@ -51,31 +51,33 @@ void DataStructures::RBTree<T>::add(const T& element)
 {
 	DataStructures::RBTNode<T>* newNode = new DataStructures::RBTNode<T>(element, root, nodeNull, nodeNull, Color::RED);
 
-	if (root == nodeNull)
+	if (this->root == nodeNull)
 	{
 		this->root = newNode;
 	}
-
-	//add to tree
-	while (true)
+	else
 	{
-		if (element < newNode->parent->value)
+		//add to tree
+		while (true)
 		{
-			if (newNode->parent->leftChild == nodeNull)
+			if (element < newNode->parent->value)
 			{
-				newNode->parent->leftChild = newNode;
-				break;
+				if (newNode->parent->leftChild == nodeNull)
+				{
+					newNode->parent->leftChild = newNode;
+					break;
+				}
+				newNode->parent = newNode->parent->leftChild;
 			}
-			newNode->parent = newNode->parent->leftChild;
-		}
-		else
-		{
-			if (newNode->parent->rightChild == nodeNull)
+			else
 			{
-				newNode->parent->rightChild = newNode;
-				break;
+				if (newNode->parent->rightChild == nodeNull)
+				{
+					newNode->parent->rightChild = newNode;
+					break;
+				}
+				newNode->parent = newNode->parent->rightChild;
 			}
-			newNode->parent = newNode->parent->rightChild;
 		}
 	}
 
@@ -86,6 +88,7 @@ template<typename T>
 void DataStructures::RBTree<T>::insertFixup(RBTNode<T>* insertedNode)
 {
 	DataStructures::RBTNode<T>* y;
+
 	while (insertedNode != root && insertedNode->parent->color == Color::RED)
 	{
 		if (insertedNode->parent == insertedNode->parent->parent->leftChild) {
@@ -161,7 +164,7 @@ template<typename T>
 void DataStructures::RBTree<T>::removeNode(RBTNode<T>* nodeToRemove)
 {
 	RBTNode<T>* y;
-	RBTNode<T>* z = nodeToRemove;
+	RBTNode<T>* x;
 
 	if (nodeToRemove == nodeNull)
 		return;
@@ -172,27 +175,28 @@ void DataStructures::RBTree<T>::removeNode(RBTNode<T>* nodeToRemove)
 		y = getSuccessor(nodeToRemove);
 
 	if (y->leftChild != nodeNull)
-		nodeToRemove = y->leftChild;
+		x = y->leftChild;
 	else
-		nodeToRemove = y->rightChild;
+		x = y->rightChild;
 
-	nodeToRemove->parent = y->parent;
+	x->parent = y->parent;
 
 	if (y->parent == nodeNull)
-		this->root = nodeToRemove;
+		this->root = x;
 	else
-		if (y = y->parent->leftChild)
-			y->parent->leftChild = nodeToRemove;
+		if (y == y->parent->leftChild)
+			y->parent->leftChild = x;
 		else
-			y->parent->rightChild = nodeToRemove;
+			y->parent->rightChild = x;
 
 	if (y != nodeToRemove)
 		nodeToRemove->value = y->value;
 
 	if (y->color == Color::BLACK)
-		deleteFixup(nodeToRemove);
+		deleteFixup(x);
 
-	delete z;
+	if (y != nodeNull)
+		delete y;
 }
 
 template<typename T>
@@ -279,7 +283,7 @@ void DataStructures::RBTree<T>::deleteFixup(RBTNode<T>* removedNode)
 template<typename T>
 void DataStructures::RBTree<T>::clear()
 {
-	if (this->root = nodeNull)
+	if (this->root == nodeNull)
 		return;
 
 	while (root->leftChild != nodeNull && root->rightChild != nodeNull)
@@ -396,29 +400,32 @@ void DataStructures::RBTree<T>::rotateLeft(RBTNode<T>* node)
 {
 	RBTNode<T>* y = node->rightChild;
 
-	//change left subtree to right
-	node->rightChild = y->leftChild;
-
-	if (y->leftChild != nodeNull)
+	if (y != nodeNull)
 	{
-		y->leftChild->parent = node;
-	}
+		//change left subtree to right
+		node->rightChild = y->leftChild;
 
-	//add x parent as node parent
-	y->parent = node->parent;
+		if (y->leftChild != nodeNull)
+		{
+			y->leftChild->parent = node;
+		}
 
-	if (node->parent == nodeNull) {
-		this->root = y;
+		//add x parent as node parent
+		y->parent = node->parent;
+
+		if (node->parent == nodeNull) {
+			this->root = y;
+		}
+		else if (node == node->parent->leftChild) {
+			node->parent->leftChild = y;
+		}
+		else {
+			node->parent->rightChild = y;
+		}
+		//add node as left y son
+		y->leftChild = node;
+		node->parent = y;
 	}
-	else if (node == node->parent->leftChild) {
-		node->parent->leftChild = y;
-	}
-	else {
-		node->parent->rightChild = y;
-	}
-	//add node as left y son
-	y->leftChild = node;
-	node->parent = y;
 }
 
 template<typename T>
@@ -426,26 +433,29 @@ void DataStructures::RBTree<T>::rotateRight(RBTNode<T>* node)
 {
 	RBTNode<T>* y = node->leftChild;
 
-	node->leftChild = y->rightChild;
-
-	if (y->rightChild != nodeNull)
+	if (y != nodeNull)
 	{
-		y->rightChild->parent = node;
-	}
+		node->leftChild = y->rightChild;
 
-	y->parent = node->parent;
+		if (y->rightChild != nodeNull)
+		{
+			y->rightChild->parent = node;
+		}
 
-	if (node->parent == nodeNull) {
-		this->root = y;
+		y->parent = node->parent;
+
+		if (node->parent == nodeNull) {
+			this->root = y;
+		}
+		else if (node == node->parent->rightChild) {
+			node->parent->rightChild = y;
+		}
+		else {
+			node->parent->leftChild = y;
+		}
+		y->rightChild = node;
+		node->parent = y;
 	}
-	else if (node == node->parent->rightChild) {
-		node->parent->rightChild = y;
-	}
-	else {
-		node->parent->leftChild = y;
-	}
-	y->rightChild = node;
-	node->parent = y;
 }
 
 template<typename T>

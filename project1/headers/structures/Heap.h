@@ -24,6 +24,8 @@ namespace DataStructures
 		// throws invalid argument exception
 		virtual T& get(const size_t& index);
 		// checks if element exists in Heap
+		virtual bool find(const T& element);
+		// if element exists in Heap returns its index
 		virtual size_t& getIndex(const T& element);
 		// adds element to end
 		virtual void add(const T& element);

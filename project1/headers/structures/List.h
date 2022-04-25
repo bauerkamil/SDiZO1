@@ -34,6 +34,8 @@ namespace DataStructures
 		virtual T& get(const size_t& index);
 		// checks if element exists in List
 		virtual size_t& getIndex(const T& element);
+		// checks if element exists in List
+		virtual bool find(const T& element);
 		// adds element to end
 		virtual void addEnd(const T& element);
 		// adds element at index

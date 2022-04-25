@@ -66,6 +66,33 @@ size_t& DataStructures::List<T>::getIndex(const T& element)
 }
 
 template<typename T>
+bool DataStructures::List<T>::find(const T& element)
+{
+	if (this->size == 0 || this->head == nullptr)
+	{
+		return false;
+	}
+
+	ListNode<T>* node = this->head;
+	for (size_t i = 0; i <= this->size; i++)
+	{
+		ListNode<T>* next = node->nextNode;
+
+		if (node->value == element)
+		{
+			return true;
+		}
+		node = next;
+
+		if (node == nullptr) {
+			break;
+		}
+	}
+
+	return false;
+}
+
+template<typename T>
 void DataStructures::List<T>::addEnd(const T& element)
 {
 	ListNode<T>* node = new ListNode<T>(element, this->tail, nullptr);
@@ -107,25 +134,25 @@ void DataStructures::List<T>::add(const size_t& index, const T& element)
 
 	//double linked list - if the index is in the first half - start from head
 	if (index <= size / 2) {
-		ListNode<T>* prevNode = this->head;
+		ListNode<T>* next = this->head;
 		for (size_t i = 0; i < index; i++)
 		{
-			ListNode<T>* next = prevNode->nextNode;
-			prevNode = next;
+			next = next->nextNode;
 		}
-		ListNode<T>* node = new ListNode<T>(element, prevNode, prevNode->nextNode);
-		prevNode->nextNode = node;
+		ListNode<T>* node = new ListNode<T>(element, next->prevNode, next);
+		next->prevNode->nextNode = node;
+		next->prevNode = node;
 	}
 	//else start from tail
 	else {
-		ListNode<T>* nextNode = this->tail;
+		ListNode<T>* next = this->tail;
 		for (size_t i = this->size - 1; i > index; i--)
 		{
-			ListNode<T>* next = nextNode->prevNode;
-			nextNode = next;
+			next = next->prevNode;
 		}
-		ListNode<T>* node = new ListNode<T>(element, nextNode->prevNode, nextNode);
-		nextNode->prevNode = node;
+		ListNode<T>* node = new ListNode<T>(element, next->prevNode, next);
+		next->prevNode->nextNode = node;
+		next->prevNode = node;
 	}
 
 	this->size++;

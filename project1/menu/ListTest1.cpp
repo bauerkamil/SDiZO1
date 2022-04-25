@@ -168,7 +168,8 @@ void ListTest1::add()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::addEnd()
@@ -176,7 +177,8 @@ void ListTest1::addEnd()
 	int element = getElement();
 	this->testList->addEnd(element);
 
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::addFront()
@@ -184,7 +186,8 @@ void ListTest1::addFront()
 	int element = getElement();
 	this->testList->addFront(element);
 
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::remove()
@@ -199,7 +202,8 @@ void ListTest1::remove()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::removeFront()
@@ -213,7 +217,8 @@ void ListTest1::removeFront()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::removeEnd()
@@ -227,7 +232,8 @@ void ListTest1::removeEnd()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testList->print(std::cout);
 }
 
 void ListTest1::getSize()

@@ -29,7 +29,7 @@ size_t& DataStructures::Heap<T>::getIndex(const T& element)
 		throw* this->out_of_bound;
 	}
 
-	for (size_t i = 0; i < this->size - 1; i++)
+	for (size_t i = 0; i <= this->size - 1; i++)
 	{
 		if (this->root[i] == element)
 		{
@@ -38,6 +38,25 @@ size_t& DataStructures::Heap<T>::getIndex(const T& element)
 	}
 
 	throw* this->out_of_bound;
+}
+
+template<typename T>
+bool DataStructures::Heap<T>::find(const T& element)
+{
+	if (this->size == 0 || this->root == nullptr)
+	{
+		return false;
+	}
+
+	for (size_t i = 0; i <= this->size - 1; i++)
+	{
+		if (this->root[i] == element)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 template<typename T>
@@ -221,10 +240,15 @@ void DataStructures::Heap<T>::heapifyMax(size_t index)
 template<typename T>
 void DataStructures::Heap<T>::buildHeap()
 {
-	for (size_t i = getParent(size - 1); i >= 1; i--)
-	{
-		heapifyMax(i - 1);
-	}
+	if (this->size > 1)
+		for (size_t i = getParent(this->size - 1); i >= 0; i--)
+		{
+			heapifyMax(i);
+			if (i == 0)
+			{
+				break;
+			}
+		}
 }
 
 template<typename T>

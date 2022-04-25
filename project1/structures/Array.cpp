@@ -21,6 +21,25 @@ T& DataStructures::Array<T>::get(const size_t& index)
 }
 
 template<typename T>
+bool DataStructures::Array<T>::find(const T& element)
+{
+	if (this->size == 0 || this->head == nullptr)
+	{
+		return false;
+	}
+
+	for (size_t i = 0; i <= this->size - 1; i++)
+	{
+		if (this->head[i] == element)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+template<typename T>
 size_t& DataStructures::Array<T>::getIndex(const T& element)
 {
 	if (this->size == 0 || this->head == nullptr)
@@ -28,7 +47,7 @@ size_t& DataStructures::Array<T>::getIndex(const T& element)
 		throw* this->out_of_bound;
 	}
 
-	for (size_t i = 0; i < this->size - 1; i++)
+	for (size_t i = 0; i <= this->size - 1; i++)
 	{
 		if (this->head[i] == element)
 		{

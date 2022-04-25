@@ -143,7 +143,8 @@ void HeapTest::add()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully added" << std::endl;
+	std::cout << "Successfully added. Structure after addition:" << std::endl;
+	this->testHeap->print(std::cout);
 }
 
 void HeapTest::removeRoot()
@@ -157,7 +158,8 @@ void HeapTest::removeRoot()
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << "Successfully removed" << std::endl;
+	std::cout << "Successfully removed. Structure after removal:" << std::endl;
+	this->testHeap->print(std::cout);
 }
 
 void HeapTest::getSize()
