@@ -101,17 +101,11 @@ void AutoListTest::autoTest()
 		{
 			get(size);
 			addEnd(size);
-			Sleep(5);
 			removeEnd(size);
-			Sleep(5);
 			add(size);
-			Sleep(5);
-			findIndex(size);
-			Sleep(5);
+			find(size);
 			remove(size);
-			Sleep(5);
 			addFront(size);
-			Sleep(5);
 			removeFront(size);
 		}
 		catch (std::exception& e)
@@ -135,17 +129,10 @@ void AutoListTest::get(size_t size)
 	this->resultFile.close();
 }
 
-void AutoListTest::findIndex(size_t size)
+void AutoListTest::find(size_t size)
 {
 	this->timer->start();
-	try
-	{
-		int index = this->testList->getIndex(searchValue);
-	}
-	catch (const std::exception&)
-	{
-	}
-
+	int index = this->testList->find(searchValue);
 	this->timer->stop();
 
 	this->resultFile.open(fileName, std::ios::app);

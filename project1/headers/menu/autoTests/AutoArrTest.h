@@ -20,7 +20,7 @@ private:
 	std::ofstream resultFile;
 	std::string fileName = "output/arrResults.csv";
 	bool isFinished = false;
-	const int iterationsNumber = 100;
+	const int iterationsNumber = 1000;
 	const int searchValue = -1;
 	void printOptions();
 	int getOption();
@@ -29,7 +29,7 @@ private:
 	int getMaxValue();
 	void autoTest();
 	void get(size_t size);
-	void findIndex(size_t size);
+	void find(size_t size);
 	void add(size_t size);
 	void addEnd(size_t size);
 	void addFront(size_t size);

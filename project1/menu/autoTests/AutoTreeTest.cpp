@@ -104,9 +104,7 @@ void AutoTreeTest::autoTest()
 		try
 		{
 			add(size);
-			Sleep(5);
 			find(size);
-			Sleep(5);
 			remove(size);
 		}
 		catch (std::exception& e)
@@ -122,14 +120,7 @@ void AutoTreeTest::autoTest()
 void AutoTreeTest::find(size_t size)
 {
 	this->timer->start();
-	try
-	{
-		int index = this->testTree->find(searchValue);
-	}
-	catch (const std::exception&)
-	{
-	}
-
+	int index = this->testTree->find(searchValue);
 	this->timer->stop();
 
 	this->resultFile.open(fileName, std::ios::app);

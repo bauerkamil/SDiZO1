@@ -20,8 +20,8 @@ private:
 	std::ofstream resultFile;
 	std::string fileName = "output/treeResults.csv";
 	bool isFinished = false;
-	const int iterationsNumber = 500;
-	const int searchValue = 1;
+	const int iterationsNumber = 1000;
+	const int searchValue = -2;
 	void printOptions();
 	int getOption();
 	void chooseOption(int option);
